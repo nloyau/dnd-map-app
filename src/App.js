@@ -7,6 +7,7 @@ import DM from './components/Pages/DM';
 import Player from './components/Pages/Player';
 
 
+
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -14,6 +15,16 @@ const darkTheme = createTheme({
       main: '#1976d2',
     },
   },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: "unset",
+          backgroundColor: "unset"
+        }
+      }
+    }
+  }
 });
 
 function App() {
@@ -26,11 +37,13 @@ function App() {
     setPlayer(true);
   };
 
+
+
   return (
     <ThemeProvider theme={darkTheme}>
       {isPlayer === null ? <Fragment>
         <Stack spacing={2} direction="row">
-          <Button variant="contained" color="primary" onClick={handleDMClick}>DM</Button>
+          <Button variant="contained" color="primary" onClick={handleDMClick}>Game Master</Button>
           <Button variant="contained" color="secondary" onClick={handlePlayerClick}>Player</Button>
         </Stack>
       </Fragment> : isPlayer ? <Player /> : <DM />}

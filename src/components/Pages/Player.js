@@ -20,35 +20,37 @@ const Player = () => {
     const [showBattleTracker, setShowBattleTracker] = useState(false);
     const [encounter, setEncounter] = useState(null);
 
-    const { sendMessage, lastMessage, readyState } = useWebSocket('ws://localhost:3001', {
+
+
+    const { sendMessage, lastMessage, readyState } = useWebSocket(global.config.websocketServer, {
         shouldReconnect: (closeEvent) => true
     });
 
     useEffect(() => {
         if (lastMessage) {
             const msg = JSON.parse(lastMessage.data);
-            if (msg.type == 'mapChange') {
+            if (msg.type === 'mapChange') {
                 const img = new window.Image();
                 img.src = msg.msg;
                 img.onload = () => {
                     setSelectedMap(img);
                     setSelectedMapDimensions({width: img.width, height: img.height});
                 };
-            } else if (msg.type == 'revealsChange') {
+            } else if (msg.type === 'revealsChange') {
                 setFogOfWarReveals(msg.msg);
-            } else if (msg.type == 'scaleChange') {
+            } else if (msg.type === 'scaleChange') {
                 setViewScale(msg.msg);
-            } else if (msg.type == 'effectsChange') {
+            } else if (msg.type === 'effectsChange') {
                 setEffects(msg.msg);
-            } else if (msg.type == 'mapPositionChange') {
+            } else if (msg.type === 'mapPositionChange') {
                 setMapPosition({x: msg.msg.x, y: msg.msg.y});
-            } else if (msg.type == 'showImage') {
+            } else if (msg.type === 'showImage') {
                 setImageToShow(msg.msg);
-            } else if (msg.type == 'closeImage') {
+            } else if (msg.type === 'closeImage') {
                 setImageToShow(null);
-            } else if (msg.type == 'toggleBattleTracker') {
+            } else if (msg.type === 'toggleBattleTracker') {
                 setShowBattleTracker(msg.msg);
-            } else if (msg.type == 'encounterUpdate') {
+            } else if (msg.type === 'encounterUpdate') {
                 setEncounter(msg.msg);
             }
         }
@@ -93,18 +95,18 @@ const Player = () => {
 
     return (
         <Fragment>
-            {readyState !== ReadyState.OPEN ? <AppBar position="static" color="primary" sx={{ display: 'flex', gap: 2 }}>
+            <AppBar position="static" color="primary" sx={{ display: 'flex', gap: 2 }} style={{backgroundColor: "black"}}>
                 <Box position="static" sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
                     <ConnectionStatus connectionStatus={readyState} />
                 </Box>
-            </AppBar> : null }
+            </AppBar> 
             <Dialog open={imageToShow !== null}>
                 <Box
                     component="img"
                     src={imageToShow}
                     />
             </Dialog>
-            <BattleTrackerViewer open={showBattleTracker} encounter={encounter} />
+            <BattleTrackerViewer open={showBattleTracker} encounter={encounter} style={{backgroundColor: "black"}}/>
             <Stage
                 style={{ backgroundColor: "black" }}
                 draggable={false}

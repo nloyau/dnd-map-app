@@ -138,6 +138,10 @@ const Effects = ({enabled, width, height, color, effects, onChange}) => {
                 fill={'rgba(0,0,0, 0)'}
                 onMouseDown={handleMouseDown}
                 listening={enabled}
+                /*onDblClick={(e) => {
+                    e.target.destroy()
+                     //e.layer.draw()
+                 }}*/
                 />
             {effectsToDraw.map((effect, i) => (
                 <Effect

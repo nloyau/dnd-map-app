@@ -134,6 +134,7 @@ const FogOfWar = ({opacity, height, width, revealEnabled, reveals, onRevealsChan
                     height={reveal.height}
                     onSelect={() => {handleSelectReveal(i)}}
                     key={i}
+                    rotation={reveal.rotation}
                     isNew={reveal.isNew}
                     isSelected={selectedReveal === i}
                     listening={revealEnabled && !reveal.isNew}

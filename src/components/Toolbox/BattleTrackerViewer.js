@@ -11,11 +11,11 @@ const BattleTrackerViewer = ({ open, encounter }) => {
     if (!encounter) return null;
 
     let props = {top: '0', left: '0'};
-    if (encounter.position == 1) {
+    if (encounter.position === 1) {
       props = {top: '0', right: '0'};
-    } else if (encounter.position == 2) {
+    } else if (encounter.position === 2) {
       props = {bottom: '0', right: '0'};
-    } else if (encounter.position == 3) {
+    } else if (encounter.position === 3) {
       props = {bottom: '0', left: '0'};
     }
 
@@ -42,7 +42,7 @@ const BattleTrackerViewer = ({ open, encounter }) => {
                             {encounter.characters.map((character, i) => (
                                 <TableRow
                                 key={character.name}
-                                style={{backgroundColor: i == encounter.turn ? 'rgba(254, 241, 96,0.3)' : character.enemy ? 'rgba(255,0,0,0.3)' : ''}}
+                                style={{backgroundColor: i === encounter.turn ? 'rgba(254, 241, 96,0.3)' : character.enemy ? 'rgba(255,0,0,0.3)' : ''}}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                     <TableCell align="left"><Typography variant="body1">{character.initiative}</Typography></TableCell>
                                     <TableCell align="left" component="th" scope="row">

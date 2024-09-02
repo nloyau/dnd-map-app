@@ -41,6 +41,10 @@ const Effect = ({listening, isSelected, isNew, onSelect, x, y, height, width, ro
                 onMouseOver={() => {document.body.style.cursor = 'move'}}
                 onMouseOut={() => {document.body.style.cursor = 'default'}}
                 onClick={onSelect}
+                /*onDblClick={(e) => {
+                    e.target.destroy()
+                    //e.layer.draw()
+                }}*/
                 onDragStart={onSelect}
                 listening={listening}
                 onDragEnd={(e) => {

@@ -1,4 +1,4 @@
-import { Dialog, DialogTitle, Button, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+import { Dialog, DialogTitle, Button, ImageList, ImageListItem, ImageListItemBar, Tooltip } from "@mui/material";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
@@ -70,8 +70,8 @@ const PhotoLibraryDialog = ({onClose, open, library, onImageChange, onImageShow}
                         <img
                             src={item}
                         />
-                        <Button variant="contained" color="secondary" onClick={() => {onImageShow(i);}}><VisibilityIcon /></Button>
-                        <Button variant="contained" color="error" onClick={() => {handleDeleteImage(i);}}><DeleteIcon /></Button>
+                        <Button variant="contained" color="secondary" onClick={() => {onImageShow(i);}}><Tooltip title="Visible"><VisibilityIcon /></Tooltip></Button>
+                        <Button variant="contained" color="error" onClick={() => {handleDeleteImage(i);}}><Tooltip title="Suppression"><DeleteIcon /></Tooltip></Button>
                     </ImageListItem>
                 ))}
             </ImageList>

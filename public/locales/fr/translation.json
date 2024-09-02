@@ -1,0 +1,49 @@
+{
+    "Welcome": {
+      "text": "Bienvenue dans cette application d'internationalisation React",
+      "description": "Cette application vise à combler le fossé et à vous aider à internationaliser facilement votre page Web."
+    },
+    "interpolation_pluralization": {
+      "text_one": "Il n'y a qu'un seul article à ce sujet",
+      "text_many": "Il y a {{count}} Des articles à ce sujet",
+      "text_other": "Il y a {{count}} Des articles à ce sujet"
+    },
+    "DMTools": {
+      "Map": {
+        "text": "Charger la carte"
+      },
+      "PanoramaPhotosphere": {
+        "text": "Charger la photosphère"
+      },
+      "Tracker": {
+        "text": "Traqueur"
+      },
+      "Camera": {
+        "text": "Contrôle de la caméra"
+      },
+      "PlayerView": {
+        "text": "Visionneuse de joueurs"
+      },
+      "FogOfWarReveal": {
+        "text": "Révélateur du brouillard de guerre"
+      },
+      "Effects": {
+        "text": "Ajouter une zone d'effet"
+      },
+      "PhotoLibrary": {
+        "text": "Photothèque"
+      },
+      "Save": {
+        "text": "Enregistrer la session en cours"
+      },
+      "Upload": {
+        "text": "Charger la session à partir du fichier json"
+      },
+      "ViewScale":{
+        "text": "Changer la taille de la vue"
+      },
+      "PlayerViewScale":{
+        "text": "Changer la taille de la vue du joueur"
+      }
+    }
+  }

@@ -1,5 +1,5 @@
 import { Stage } from 'react-konva';
-import { Fragment, useState, useEffect, useRef, useCallback } from 'react';
+import { Fragment, useState, useEffect, useRef /*, useCallback*/ } from 'react';
 import Map from '../Layers/Map';
 import FogOfWar from '../Layers/FogOfWar';
 import DMToolbox from '../Toolbox/DMToolbox';
@@ -12,7 +12,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import BattleTracker from '../Toolbox/BattleTracker';
 
 const DM = () => {
-  const { sendMessage, lastMessage, readyState } = useWebSocket('ws://localhost:3001', {
+  const { sendMessage, lastMessage, readyState } = useWebSocket(global.config.websocketServer, {
     shouldReconnect: (closeEvent) => true
   });
 
@@ -190,9 +190,9 @@ const DM = () => {
   useEffect(() => {
     if (lastMessage) {
       const msg = JSON.parse(lastMessage.data);
-      if (msg.type == 'playerViewChange') {
+      if (msg.type === 'playerViewChange') {
         setPlayerViewDimensions({x: playerViewDimensions.x, y: playerViewDimensions.y, width: msg.msg.width / playerViewScale, height: msg.msg.height / playerViewScale});
-      } else if (msg.type == 'playerConnected') {
+      } else if (msg.type === 'playerConnected') {
         sendPlayerEverything();
       }
     }

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useRef } from "react";
-import { Rect, Transformer } from "react-konva";
+import { Rect,Path, Transformer } from "react-konva";
 
-const FogOfWarReveal = ({listening, isSelected, isNew, onSelect, x, y, height, width, draggable, onChange}) => {
+const FogOfWarReveal = ({listening, isSelected, isNew, onSelect, x, y, height, width, draggable, onChange,rotation }) => {
     const trRef = useRef();
     const revealRef = useRef();
 
@@ -36,6 +36,7 @@ const FogOfWarReveal = ({listening, isSelected, isNew, onSelect, x, y, height, w
                 width={width}
                 height={height}
                 fill={'rgba(255,255,255,1)'}
+                rotation={rotation}
                 draggable={draggable}
                 globalCompositeOperation="destination-out"
                 onClick={onSelect}
@@ -46,6 +47,7 @@ const FogOfWarReveal = ({listening, isSelected, isNew, onSelect, x, y, height, w
                         height: height,
                         x: e.target.x(),
                         y: e.target.y(),
+                        rotation: e.target.rotation()
                     });
                 }}
                 listening={listening}
@@ -55,19 +57,19 @@ const FogOfWarReveal = ({listening, isSelected, isNew, onSelect, x, y, height, w
                     const scaleY = node.scaleY();
                     node.scaleX(1);
                     node.scaleY(1);
-
                     onChange({
                         x: node.x(),
                         y: node.y(),
                         width: node.width() * scaleX,
-                        height: node.height() * scaleY
+                        height: node.height() * scaleY,
+                        rotation: node.rotation()
                     });
                 }}
             />
             {isSelected && <Transformer
                 ref={trRef}
                 flipEnabled={false}
-                rotateEnabled={false}
+                /*rotateEnabled={true}*/
                 listening={listening}
             />}
         </Fragment>

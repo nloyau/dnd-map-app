@@ -1,7 +1,7 @@
 import UploadIcon from '@mui/icons-material/Upload';
 import { useRef } from 'react';
-import { Button } from '@mui/material';
-
+import { Button, Tooltip } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 const LoadButton = ({ handleStateLoad }) => {
     const fileUploadRef = useRef();
 
@@ -20,10 +20,10 @@ const LoadButton = ({ handleStateLoad }) => {
             reader.readAsText(file);
         }
     };
-
+    const { t } = useTranslation();
     return (
         <Button variant="contained" color="error" onClick={handleClick}>
-            <UploadIcon />
+            <Tooltip title={t('DMTools.Upload.text')}><UploadIcon /></Tooltip>
             <input ref={fileUploadRef} hidden={true} type="file" onChange={handleFileChange} />
         </Button>
     );

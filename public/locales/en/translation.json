@@ -1,0 +1,48 @@
+{
+    "Welcome": {
+      "text": "Welcome to this React internationalization app",
+      "description": "This app aims to bridge the gap and help you internationalize your web page easily."
+    },
+    "interpolation_pluralization": {
+      "text_one": "There is only one article about this",
+      "text_other": "There is {{count}} Articles about this"
+    },
+    "DMTools": {
+      "Map": {
+        "text": "Load map"
+      },
+      "PanoramaPhotosphere": {
+        "text": "Load the photosphere"
+      },
+      "Tracker": {
+        "text": "Tracker"
+      },
+      "Camera": {
+        "text": "Camera control"
+      },
+      "PlayerView": {
+        "text": "Player Viewer"
+      },
+      "FogOfWarReveal": {
+        "text": "Revealer of the Fog of War"
+      },
+      "Effects": {
+        "text": "Add an area of ​​effect"
+      },
+      "PhotoLibrary": {
+        "text": "Photo library"
+      },
+      "Save": {
+        "text": "Save current session"
+      },
+      "Upload": {
+        "text": "Load session from json file"
+      },
+      "ViewScale": {
+        "text": "Change View scale"
+      },
+      "PlayerViewScale": {
+        "text": "Change Player View scale"
+      }
+    }
+  }
