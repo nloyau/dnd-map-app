@@ -73,6 +73,8 @@ const BattleTracker = ({ open, onClose, onChange }) => {
             padding: '16px',
             cursor: 'move',
             zIndex: 1300, // Ensure it's above other content
+                        backgroundColor: 'rgba(100,100,100,.5)',
+            right: '-10px'
           }}
         >
           <Box display="flex" justifyContent="space-between" alignItems="center" id="draggable-dialog-title">

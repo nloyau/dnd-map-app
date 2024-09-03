@@ -24,13 +24,13 @@
         "text": "Player Viewer"
       },
       "FogOfWarReveal": {
-        "text": "Revealer of the Fog of War"
+        "text": "Revealer of the Fog of War (press d for delete)"
       },
       "Effects": {
-        "text": "Add an area of ​​effect"
+        "text": "Add an area of ​​effect (press d for delete)"
       },
       "PhotoLibrary": {
-        "text": "Photo library"
+        "text": "Photo library (press d for delete)"
       },
       "Save": {
         "text": "Save current session"

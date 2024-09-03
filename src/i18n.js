@@ -6,7 +6,7 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
    
-    lng: 'en', // if you're using a language detector, do not define the lng option
+    lng: 'fr', // if you're using a language detector, do not define the lng option
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape

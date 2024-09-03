@@ -2,13 +2,14 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import { AppBar, Box, Dialog } from '@mui/material';
 import ConnectionStatus from "../Toolbox/ConnectionStatus";
-import { Stage } from 'react-konva';
+import { Label, Stage } from 'react-konva';
 import Map from "../Layers/Map";
 import FogOfWar from "../Layers/FogOfWar";
 import Effects from "../Layers/Effects";
 import BattleTrackerViewer from "../Toolbox/BattleTrackerViewer";
 
-const Player = () => {
+const Player = (props) => {
+    const [uuid, setUuid] = useState(props.uid);
     const [selectedMap, setSelectedMap] = useState(null);
     const [selectedMapDimensions, setSelectedMapDimensions] = useState({ width: 0, height: 0 });
     const [fogOfWarReveals, setFogOfWarReveals] = useState([]);
@@ -86,6 +87,7 @@ const Player = () => {
             JSON.stringify({
                 'type': 'playerViewChange',
                 msg: {
+                    uuid: uuid,
                     width: window.innerWidth,
                     height: window.innerHeight
                 }
@@ -97,7 +99,7 @@ const Player = () => {
         <Fragment>
             <AppBar position="static" color="primary" sx={{ display: 'flex', gap: 2 }} style={{backgroundColor: "black"}}>
                 <Box position="static" sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-                    <ConnectionStatus connectionStatus={readyState} />
+                    <ConnectionStatus connectionStatus={readyState} /><Label>{uuid}</Label>
                 </Box>
             </AppBar> 
             <Dialog open={imageToShow !== null}>

@@ -28,6 +28,10 @@ const BattleTrackerViewer = ({ open, encounter }) => {
             width: '25%',
             padding: '16px',
             zIndex: 1300, // Ensure it's above other content
+            backgroundColor: 'rgba(100,100,100,.5)',
+            right: '2%',
+            width: '20%',
+            
           }}
         >
           <Box display="flex" justifyContent="space-between" alignItems="center" id="draggable-dialog-title">

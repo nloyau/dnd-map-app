@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import DM from './components/Pages/DM';
 import Player from './components/Pages/Player';
-
+import { v4 as uuidv4, v6 as uuidv6 } from 'uuid';
 
 
 const darkTheme = createTheme({
@@ -46,7 +46,7 @@ function App() {
           <Button variant="contained" color="primary" onClick={handleDMClick}>Game Master</Button>
           <Button variant="contained" color="secondary" onClick={handlePlayerClick}>Player</Button>
         </Stack>
-      </Fragment> : isPlayer ? <Player /> : <DM />}
+      </Fragment> : isPlayer ? <Player uid={uuidv4()} /> : <DM />}
     </ThemeProvider>
   );
 }

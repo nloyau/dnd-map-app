@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import MapSelector from './MapSelector';
-import { AppBar, Box, ToggleButtonGroup, ToggleButton, Button, Tooltip } from '@mui/material';
+import { AppBar, Box, ToggleButtonGroup, ToggleButton, Button, Tooltip,Slider } from '@mui/material';
 import ControlCameraIcon from '@mui/icons-material/ControlCamera';
 import StreetviewIcon from '@mui/icons-material/Streetview';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -99,11 +99,38 @@ const DMToolbox = ({
                     </ToggleButton>
                 </ToggleButtonGroup>
                 <EffectColorPicker color={selectedEffectColor} onColorChange={handleEffectColorChange} />
-                <Tooltip title={t('DMTools.ViewScale.text')}><input id={'DMViewScale'} type="number" value={dmViewScale} min={0.1} max={5} step={0.1} onChange={dmViewScaleChangeHandler} /></Tooltip>
-                <Tooltip title={t('DMTools.PlayerViewScale.text')}><input id={'PlayerViewScale'} type="number" value={playerViewScale} min={0.1} max={5} step={0.1} onChange={playerViewScaleChangeHandler} /></Tooltip>
+                <ToggleButtonGroup orientation="horizontal" size="large" aria-label="Small sizes" sx={{ flexWrap: "wrap", width: "200px" }}>
+                <Tooltip title={t('DMTools.ViewScale.text')}>
+                    <Slider
+                        size="small"
+                        defaultValue={1}
+                        aria-label="Small"
+                        valueLabelDisplay="auto"
+                        step={0.1}
+                        min={0.1}
+                        max={5}
+                        value={dmViewScale}
+                        onChange={dmViewScaleChangeHandler}
+                        />
+                </Tooltip>
+                <Tooltip title={t('DMTools.PlayerViewScale.text')}>
+                    <Slider
+                        size="small"
+                        defaultValue={1}
+                        aria-label="Small"
+                        valueLabelDisplay="auto"
+                        step={0.1}
+                        min={0.1}
+                        max={5}
+                        value={playerViewScale}
+                        onChange={playerViewScaleChangeHandler}
+                         />
+                </Tooltip>
+                </ToggleButtonGroup>
+             
                 <SaveButton getState={getState} filename="session" />
                 <LoadButton handleStateLoad={handleLoad} />
-            <ToggleButtonGroup value={selectedTool} orientation="horizontal" size="large" aria-label="Small sizes" sx={{ flexWrap: "wrap" }}>
+            <ToggleButtonGroup orientation="horizontal" size="large" aria-label="Small sizes" sx={{ flexWrap: "wrap" }}>
                 <LanguageButton />
             </ToggleButtonGroup>
             </Box>
